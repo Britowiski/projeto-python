@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #7494bc;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Defina a largura máxima para a caixa de login */
+}
+
+.logo {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 20px; /* Centraliza a imagem e adiciona espaço na parte inferior */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color:  #234678;
+
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #7c8484; /**/
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #234678; /* Cor padrão do link */
+    text-decoration: none;
+    transition: color 0.3s; /* Adiciona uma transição suave para a mudança de cor */
+}
+
+.register-link a:hover {
+    color: #7c8484;  /* Cor do link ao passar o mouse */   /* */
+}
+
+
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Media query para ajustar o layout em telas menores */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
