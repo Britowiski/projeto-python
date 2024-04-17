@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro Kanban</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery UI CSS (Para arrastar e soltar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <style>
+        .card-columns {
+            column-count: 5; /* Alterado para 5 colunas */
+        }
+        .card {
+            cursor: pointer; /* Mudar o cursor para indicar que o cartão é clicável */
+        }
+        .editable {
+            border: none;
+            background-color: transparent;
+            width: 100%;
+            outline: none;
+        }
+        .azul {
+            background-color: #007bff; /* Azul */
+        }
+        .roxo {
+            background-color: #6f42c1; /* Roxo */
+        }
+        .vermelho {
+            background-color: #dc3545; /* Vermelho */
+        }
+        .amarelo {
+            background-color: #ffc107; /* Amarelo */
+        }
+        .verde {
+            background-color: #28a745; /* Verde */
+        }
+        #add-board {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .btn-delete {
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            color: black; /* Cor do texto */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card-columns" id="kanban-board">
+            <!-- Aqui você pode adicionar quadros de Kanban -->
+            <div class="card arrastavel azul">
+                <div class="card-body">
+                    <h5 class="card-title">Quadro 1</h5>
+                    <!-- Inclua um botão para excluir o quadro -->
+                    <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button>
+                    <input type="text" class="editable" value="Tarefa 1">
+                </div>
+            </div>
+            <div class="card arrastavel roxo">
+                <div class="card-body">
+                    <h5 class="card-title">Quadro 2</h5>
+                    <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button>
+                    <input type="text" class="editable" value="Tarefa 2">
+                </div>
+            </div>
+            <div class="card arrastavel vermelho">
+                <div class="card-body">
+                    <h5 class="card-title">Quadro 3</h5>
+                    <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button>
+                    <input type="text" class="editable" value="Tarefa 3">
+                </div>
+            </div>
+            <div class="card arrastavel amarelo">
+                <div class="card-body">
+                    <h5 class="card-title">Quadro 4</h5>
+                    <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button>
+                    <input type="text" class="editable" value="Tarefa 4">
+                </div>
+            </div>
+            <div class="card arrastavel verde">
+                <div class="card-body">
+                    <h5 class="card-title">Quadro 5</h5>
+                    <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button>
+                    <input type="text" class="editable" value="Tarefa 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Botão para adicionar novo quadro -->
+    <button id="add-board" class="btn btn-primary">Novo +</button>
+
+    <!-- Bootstrap JS e dependências (jQuery, Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery e jQuery UI (Para arrastar e soltar) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- JavaScript personalizado para funcionalidade de arrastar e soltar -->
+    <script>
+        $(document).ready(function(){
+            var numQuadros = 5;
+
+            $('#kanban-board').sortable({
+                items: '.card',
+                cursor: 'move',
+                revert: true,
+                containment: 'parent'
+            });
+
+            // Adicionar funcionalidade de exclusão de quadro
+            $(document).on('click', '.btn-delete', function() {
+                $(this).closest('.card').remove();
+                // Habilitar o botão após excluir um quadro
+                $('#add-board').prop('disabled', false);
+                numQuadros--;
+            });
+
+            // Adicionar funcionalidade de adição de quadro
+            $('#add-board').click(function() {
+                // Verifica se já existem 5 quadros
+                if (numQuadros < 5) {
+                    numQuadros++;
+                    var novoQuadro = $('<div class="card arrastavel azul"> \
+                                            <div class="card-body"> \
+                                                <h5 class="card-title">Quadro ' + numQuadros + '</h5> \
+                                                <button class="btn btn-danger btn-sm mb-2 btn-delete">Excluir</button> \
+                                                <input type="text" class="editable" value="Nova Tarefa"> \
+                                            </div> \
+                                        </div>');
+                    if (numQuadros == 2) novoQuadro.addClass('roxo');
+                    else if (numQuadros == 3) novoQuadro.addClass('vermelho');
+                    else if (numQuadros == 4) novoQuadro.addClass('amarelo');
+                    else if (numQuadros == 5) novoQuadro.addClass('verde');
+                    
+                    $('#kanban-board').append(novoQuadro);
+                    novoQuadro.draggable({
+                        revert: "invalid",
+                        stack: ".arrastavel",
+                        containment: "#kanban-board",
+                        helper: "clone"
+                    });
+
+                    // Desativa o botão quando o limite é atingido
+                    if (numQuadros === 5) {
+                        $(this).prop('disabled', true);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
