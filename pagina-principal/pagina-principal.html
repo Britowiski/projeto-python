@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFEA9E; /* Cor de fundo */
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilo para a barra de navegação */
+        .navbar {
+            background-color: #f2f2f2;
+            padding: 25px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        /* Estilo para o logo */
+        .navbar-logo img {
+            max-height: 40px;
+        }
+        /* Estilo para os links da barra de navegação */
+        .navbar-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-links li {
+            margin-right: 20px;
+        }
+        .navbar-links li:last-child {
+            margin-right: 0;
+        }
+        .navbar-links a {
+            text-decoration: none;
+            color: #333;
+        }
+        .navbar-links a:hover {
+            color: #0077cc;
+        }
+        /* Estilo para o Lean Canvas */
+        .lean-canvas {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 100px;
+        }
+        .lean-canvas .main-div {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            border: solid white;
+            padding-left: 3rem;
+
+        }
+        .lean-canvas .main-div > div {
+            flex: 1;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border: solid white;
+            padding-left:20px ;
+
+        }
+        .lean-canvas .main-div > div:last-child {
+            margin-right: 0;
+        }
+        .horizontal {
+            display: flex;
+            flex-direction: row;
+            border: solid white;
+            padding-left: 3rem;
+        }
+        .horizontal div {
+            flex: 1;
+            padding-left: 20px;
+            margin-right: 20px;
+            border: solid white;
+            padding-left: 20px;
+        }
+        .horizontal div:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <!-- Links da Navbar -->
+        <ul class="navbar-links">
+            <li><a href="#">Acessar Meu Perfil</a></li>
+            <li>Nome de Usuário</li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Modelo Lean Canvas -->
+    <div class="lean-canvas">
+        <div class="main-div">
+            <div>
+                <h3>Parceiros Principais</h3>
+                <!-- Conteúdo do Parceiros Principais aqui -->
+            </div>
+            <div>
+                <h3>Principais Atividades</h3>
+                <!-- Conteúdo do Principais Atividades aqui -->
+            </div>
+            <div>
+                <h3>Principais Recursos</h3>
+                <!-- Conteúdo do Principais Recursos aqui -->
+            </div>
+            <div>
+                <h3>Proposta de Valor</h3>
+                <!-- Conteúdo do Proposta de Valor aqui -->
+            </div>
+            <div>
+                <h3>Relação com o Cliente</h3>
+                <!-- Conteúdo do Relação com o Cliente aqui -->
+            </div>
+            <div>
+                <h3>Canais de Vendas</h3>
+                <!-- Conteúdo do Canais de Vendas aqui -->
+            </div>
+            <div>
+                <h3>Segmento de Cliente</h3>
+                <!-- Conteúdo do Segmento de Cliente aqui -->
+            </div>
+        </div>
+        <div class="horizontal">
+            <div>
+                <h3>Estrutura de Custos</h3>
+                <!-- Conteúdo do Estrutura de Custos aqui -->
+            </div>
+            <div>
+                <h3>Fluxos de Caixa</h3>
+                <!-- Conteúdo do Fluxos de Caixa aqui -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
