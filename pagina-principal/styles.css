@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #f2d99e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    margin-right: 20px;
+}
+
+.profile-link, .logout-link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.project-title {
+    width: calc(30% - 40px);
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.share-button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.canvas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px) 2fr;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f2d99e;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.box {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    
+    
+}
+
+.add-note {
+    background-color: #f0f0f0; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+
+.box:nth-child(8),
+.box:nth-child(9) {
+    grid-column: span 2;
+    height: 150px;
+}
+
+.box:nth-child(4){
+    height: 279px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+}
+
+#note-input {
+    width: 90%;
+    height: 100px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#save-note {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.box {
+
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.add-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background-color: #f0f0f0; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
